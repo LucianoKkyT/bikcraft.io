@@ -1,11 +1,43 @@
+:root {
+  --cor-primaria: #e21; /*Cmd + F para localizar todos e alterar de uma vez*/
+  --cor-primaria-escura: #900;
+  --fundo-1: #f7f7f7;
+  --fundo-2: #ffffff;
+  --texto: #000000;
+  --subtitulo: rgba(0, 0, 0, 0.2);
+  --onda: url(../web/img/onda-clara.svg);
+  /*No root coloca as especificações originais do modo claro, no @media você cria o modo escuro*/
+}
+
+/*:root {
+  --fundo-1: #111111;
+  --fundo-2: #000000;
+  --texto: #ffffff;
+  --subtitulo: rgba(255, 255, 255, 0.2);
+  --onda: url(../web/img/onda-escura.svg);
+}*/
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --fundo-1: #111111;
+    --fundo-2: #000000;
+    --texto: #ffffff;
+    --subtitulo: rgba(255, 255, 255, 0.2);
+    --onda: url(../web/img/onda-escura.svg);
+  }
+}
+
 body {
   font-family: Arial, Helvetica, sans-serif;
   margin: 0px;
-  background: #f7f7f7;
+  background: var(--fundo-1);
   display: grid;
   gap: 60px;
   justify-items: center;
   margin-top: 60px;
+  color: var(
+    --texto
+  ); /*Não esquecer de definir a cor do texto no body para que variável funcione*/
 }
 
 img {
@@ -50,16 +82,16 @@ ul {
 
 .menu a {
   display: block;
-  background: #ffffff;
+  background: var(--fundo-2);
   padding: 1rem 2rem;
   border-radius: 4px;
-  color: #000000;
+  color: var(--texto);
   text-transform: uppercase;
-  border: 2px solid #fff;
+  border: 2px solid var(--fundo-2);
 }
 
 .menu a:hover {
-  border-color: #e21;
+  border-color: var(--cor-primaria);
 }
 
 .conteudo {
@@ -69,7 +101,7 @@ ul {
 }
 
 .introducao {
-  background: #ffffff;
+  background: var(--fundo-2);
   padding: 40px;
   text-align: right;
   position: relative;
@@ -87,7 +119,7 @@ ul {
   content: ""; /*Como regra, o pseudo-elemento sempre terá um content""*/
   width: 60px;
   height: 4px;
-  background: #e21;
+  background: var(--cor-primaria);
   position: absolute;
   top: 30px;
   right: -30px;
@@ -101,14 +133,14 @@ ul {
 /*.detalhe {
   width: 60px;
   height: 4px;
-  background: #e21;
+  background: var(--cor-primaria);
   position: absolute;
   top: 30px;
   right: -30px;
 }Substituído por um pseudo elemento*/
 
 .botao {
-  background: #e21;
+  background: var(--cor-primaria);
   color: #ffffff;
   padding: 1rem 2rem;
   border-radius: 4px;
@@ -116,23 +148,23 @@ ul {
 }
 
 .botao:hover {
-  background-color: #900;
+  background-color: var(--cor-primaria-escura);
 }
 
 .subtitulo {
   font-size: 4rem;
   text-transform: uppercase;
-  color: rgba(0, 0, 0, 0.2);
+  color: var(--subtitulo);
   text-align: right;
   padding: 40px;
   align-items: center;
   align-self: center;
-  background-image: url(../web/img/onda.svg);
+  background-image: var(--onda);
   /*word-break: break-all; Uma forma para quebar as palavras*/
 }
 
 .vantagens {
-  background: #fff;
+  background: var(--fundo-2);
   padding: 40px;
 }
 
@@ -145,11 +177,11 @@ ul {
 }
 
 .vantagens-item:nth-child(odd) {
-  background: #f7f7f7;
+  background: var(--fundo-1);
 }
 
 .vantagens-item:hover {
-  border-color: #e21;
+  border-color: var(--cor-primaria);
 }
 
 .vantagens-item p {
@@ -157,7 +189,7 @@ ul {
 }
 
 .rodape {
-  background: #fff;
+  background: var(--fundo-2);
   width: 100%;
   text-align: center;
   padding: 40px;
