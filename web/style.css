@@ -37,7 +37,7 @@ body {
   margin-top: 60px;
   color: var(
     --texto
-  ); /*Não esquecer de definir a cor do texto no body para que variável funcione*/
+  ); /*Não esquecer de definir cor de texto no body para que variável funcione*/
 }
 
 img {
